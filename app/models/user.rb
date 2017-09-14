@@ -1,8 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates :name, presence: true, length: { minimum: 4, maximum: 40 }
+  validates_format_of :name, with: /^[a-z A-Z]*$/, :multiline => true
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]  
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
 
   def self.new_with_session(params, session)
     super.tap do |user|
@@ -19,6 +21,7 @@ class User < ApplicationRecord
          {
           provider: auth.provider,
           uid: auth.uid,
+          name: auth.info.name,
           email: auth.info.email,
           password: Devise.friendly_token[0,20]
          }
