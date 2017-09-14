@@ -8,6 +8,9 @@
       .navbar-brand= link_to "Photogram", root_path
     .collapse.navbar-collapse#bs-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
+        - if admin_signed_in?
+          %li
+            = link_to "ADMIN Logout", destroy_admin_session_path, method: :delete
         - if user_signed_in?
           %li
             = link_to "Home", root_path

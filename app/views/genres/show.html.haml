@@ -1,0 +1,7 @@
+.row
+  %p= @genre.name
+  %p= @genre.description
+.text-center.edit-links
+  = link_to "Cancel", genres_path
+  |
+  = link_to "Edit genre", edit_genre_path(@genre)

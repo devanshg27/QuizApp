@@ -1,0 +1,4 @@
+-@genres.each do |genre|
+  .row
+    = link_to (genre.name), genre_path(genre)
+    %p= genre.description
