@@ -1,0 +1,2 @@
+module SubgenresHelper
+end

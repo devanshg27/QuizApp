@@ -2,3 +2,15 @@
   .row
     = link_to (genre.name), genre_path(genre)
     %p= genre.description
+    .comment-form.col-sm-11
+      - if genre.subgenres
+        - genre.subgenres.each do |subgenre|
+          .subgenre
+            .subgenre-name
+              = subgenre.name
+            .subgenre-content
+              = subgenre.description
+      = form_for [genre, genre.subgenres.new] do |f|
+        = f.text_field :name, placeholder: 'Add subgenre name...'
+        = f.text_field :description, placeholder: 'Add subgenre description...'
+        = f.submit "Submit"

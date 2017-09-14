@@ -1,6 +1,20 @@
 .row
   %p= @genre.name
   %p= @genre.description
+.form.col-sm-11
+- if @genre.subgenres
+  - @genre.subgenres.each do |subgenre|
+    .subgenre
+      .subgenre-name
+        = subgenre.name
+      .subgenre-content
+        = subgenre.description
+        = link_to genre_subgenre_path(@genre, subgenre), method: :delete, data: { confirm: "Are you sure?" } do
+          %span(class="glyphicon glyphicon-remove delete-subgenre")
+= form_for [@genre, @genre.subgenres.new] do |f|
+  = f.text_field :name, placeholder: 'Add subgenre name...'
+  = f.text_field :description, placeholder: 'Add subgenre description...'
+  = f.submit "Submit"
 .text-center.edit-links
   = link_to "Cancel", genres_path
   |
