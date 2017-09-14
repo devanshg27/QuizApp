@@ -60,3 +60,6 @@ gem 'haml'
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'jquery-rails'
+
+gem 'omniauth-oauth2', '1.3.1'  
+gem 'omniauth-facebook'
