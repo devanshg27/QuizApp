@@ -16,10 +16,10 @@
         = question.option4
       .question-content
         = question.answer
-        = link_to genre_subgenre_question_path(@genre, @subgenre, question), method: :delete, data: { confirm: "Are you sure?" } do
+        = link_to genre_subgenre_question_path(@genre, @subgenre, question), method: :delete, data: { confirm: "Are you sure?" }, remote: true do
           %span(class="glyphicon glyphicon-remove delete-question")
 .form.col-sm-12
-  = form_for [@genre, @subgenre, @subgenre.questions.new] do |f|
+  = form_for [@genre, @subgenre, @subgenre.questions.new], remote: true do |f|
     = f.text_field :question, placeholder: 'Add question...'
     = f.text_field :option1, placeholder: 'Add option1...'
     = f.text_field :option2, placeholder: 'Add option2...'

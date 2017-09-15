@@ -18,8 +18,13 @@ class QuestionsController < ApplicationController
     @question = @subgenre.questions.find(params[:id])
 
     @question.destroy
-    flash[:success] = "question deleted."
-    redirect_to root_path
+    respond_to do |format|
+      format.html {
+      	flash[:success] = "question deleted."
+      	redirect_to root_path
+      }
+      format.json
+    end
   end
 
   private
