@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question, :option1, :option2, :option3, :option4, :answer)
+    params.require(:question).permit(:question, :option1, :option2, :option3, :option4, :answer, :image, :audio)
   end
 
   def set_subgenre

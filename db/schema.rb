@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914232046) do
+ActiveRecord::Schema.define(version: 20170915140029) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20170914232046) do
     t.string "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.string "audio_file_name"
+    t.string "audio_content_type"
+    t.integer "audio_file_size"
+    t.datetime "audio_updated_at"
     t.index ["subgenre_id"], name: "index_questions_on_subgenre_id"
   end
 

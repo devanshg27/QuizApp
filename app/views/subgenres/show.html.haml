@@ -6,6 +6,8 @@
     .question
       .question-name
         = question.question
+        = image_tag question.image.url(:medium)
+        = audio_tag question.audio.url
       .question-name
         = question.option1
       .question-name
@@ -26,6 +28,8 @@
     = f.text_field :option3, placeholder: 'Add option3...'
     = f.text_field :option4, placeholder: 'Add option4...'
     = f.text_field :answer, placeholder: 'Add Answer...'
+    = f.file_field :image
+    = f.file_field :audio
     = f.submit "Submit"
 .text-center.edit-links
   = link_to "Cancel", genre_subgenres_path

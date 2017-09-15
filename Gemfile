@@ -63,3 +63,5 @@ gem 'jquery-rails'
 
 gem 'omniauth-oauth2', '1.3.1'
 gem 'omniauth-facebook'
+
+gem 'paperclip', '~> 4.2'
