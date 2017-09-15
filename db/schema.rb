@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914215509) do
+ActiveRecord::Schema.define(version: 20170914232046) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,19 @@ ActiveRecord::Schema.define(version: 20170914215509) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "subgenre_id"
+    t.text "question"
+    t.string "option1"
+    t.string "option2"
+    t.string "option3"
+    t.string "option4"
+    t.string "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subgenre_id"], name: "index_questions_on_subgenre_id"
   end
 
   create_table "subgenres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,5 +78,6 @@ ActiveRecord::Schema.define(version: 20170914215509) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "questions", "subgenres"
   add_foreign_key "subgenres", "genres"
 end

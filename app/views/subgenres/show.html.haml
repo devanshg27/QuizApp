@@ -1,0 +1,33 @@
+.row
+  %p= @subgenre.name
+  %p= @subgenre.description
+- if @subgenre.questions
+  - @subgenre.questions.each do |question|
+    .question
+      .question-name
+        = question.question
+      .question-name
+        = question.option1
+      .question-name
+        = question.option2
+      .question-name
+        = question.option3
+      .question-name
+        = question.option4
+      .question-content
+        = question.answer
+        = link_to genre_subgenre_question_path(@genre, @subgenre, question), method: :delete, data: { confirm: "Are you sure?" } do
+          %span(class="glyphicon glyphicon-remove delete-question")
+.form.col-sm-12
+  = form_for [@genre, @subgenre, @subgenre.questions.new] do |f|
+    = f.text_field :question, placeholder: 'Add question...'
+    = f.text_field :option1, placeholder: 'Add option1...'
+    = f.text_field :option2, placeholder: 'Add option2...'
+    = f.text_field :option3, placeholder: 'Add option3...'
+    = f.text_field :option4, placeholder: 'Add option4...'
+    = f.text_field :answer, placeholder: 'Add Answer...'
+    = f.submit "Submit"
+.text-center.edit-links
+  = link_to "Cancel", genre_subgenres_path
+  |
+  = link_to "Edit subgenre", edit_genre_subgenre_path(@subgenre)

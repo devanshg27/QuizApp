@@ -2,6 +2,9 @@ class SubgenresController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_genre
 
+  def show
+  	@subgenre = @genre.subgenres.find(params[:id])
+  end
   def create
     @subgenre = @genre.subgenres.build(subgenre_params)
 
@@ -18,7 +21,7 @@ class SubgenresController < ApplicationController
     @subgenre = @genre.subgenres.find(params[:id])
 
     @subgenre.destroy
-    flash[:success] = "Subgenre deleted :("
+    flash[:success] = "Subgenre deleted."
     redirect_to root_path
   end
 
