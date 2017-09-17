@@ -1,5 +1,5 @@
 class QuizzesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_any!
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
   before_action :owned_quiz, only: [:edit, :update, :destroy]
   before_action :set_subgenre
@@ -122,4 +122,11 @@ class QuizzesController < ApplicationController
       redirect_to root_path
     end
   end
+  def authenticate_any!
+    if admin_signed_in?
+        true
+    else
+        authenticate_user!
+    end
+end
 end
