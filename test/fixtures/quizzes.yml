@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  subgenre: one
+  question: one
+  score: 1
+  randomGenerator: MyText
+  doubleTryLeft: false
+  skipQuestionLeft: false
+  hasFinished: false
+
+two:
+  user: two
+  subgenre: two
+  question: two
+  score: 1
+  randomGenerator: MyText
+  doubleTryLeft: false
+  skipQuestionLeft: false
+  hasFinished: false

@@ -10,4 +10,5 @@ class Question < ApplicationRecord
   has_attached_file :audio
   validates_attachment_content_type :audio, :content_type => /\Aaudio\/.*\Z/
   belongs_to :subgenre
+  has_many :quizzes, dependent: :destroy
 end

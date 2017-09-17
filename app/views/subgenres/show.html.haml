@@ -6,8 +6,10 @@
     .question
       .question-name
         = question.question
-        = image_tag question.image.url(:medium)
-        = audio_tag question.audio.url
+        - if question.image?
+          = image_tag question.image.url(:medium)
+        - if question.audio?
+          = audio_tag question.audio.url
       .question-name
         = question.option1
       .question-name

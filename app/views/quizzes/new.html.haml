@@ -1,0 +1,4 @@
+.form-wrapper
+  = form_for [@genre, @subgenre, @subgenre.quizzes.new] do |f|
+    .actions
+      = f.submit "Submit"

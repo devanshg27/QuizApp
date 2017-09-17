@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915140029) do
+ActiveRecord::Schema.define(version: 20170915173855) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -57,6 +57,22 @@ ActiveRecord::Schema.define(version: 20170915140029) do
     t.index ["subgenre_id"], name: "index_questions_on_subgenre_id"
   end
 
+  create_table "quizzes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "user_id"
+    t.bigint "subgenre_id"
+    t.bigint "question_id"
+    t.integer "score"
+    t.text "randomGenerator"
+    t.boolean "doubleTryLeft"
+    t.boolean "skipQuestionLeft"
+    t.boolean "hasFinished"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_quizzes_on_question_id"
+    t.index ["subgenre_id"], name: "index_quizzes_on_subgenre_id"
+    t.index ["user_id"], name: "index_quizzes_on_user_id"
+  end
+
   create_table "subgenres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "genre_id"
     t.string "name"
@@ -87,5 +103,8 @@ ActiveRecord::Schema.define(version: 20170915140029) do
   end
 
   add_foreign_key "questions", "subgenres"
+  add_foreign_key "quizzes", "questions"
+  add_foreign_key "quizzes", "subgenres"
+  add_foreign_key "quizzes", "users"
   add_foreign_key "subgenres", "genres"
 end

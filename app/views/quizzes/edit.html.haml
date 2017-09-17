@@ -1,0 +1,7 @@
+.form-wrapper
+  = form_tag genre_subgenre_quiz_path(@genre, @subgenre, @quiz), method: :patch do
+    .search_field
+      = text_field_tag "quiz[answer]"
+      = check_box_tag "quiz[doubleTryUse]"
+      = check_box_tag "quiz[skipQuestionUse]"
+      = button_tag 'Go' , class: 'search-button' , type: :submit

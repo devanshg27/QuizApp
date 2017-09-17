@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates_format_of :name, with: /^[a-z A-Z]*$/, :multiline => true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:facebook]
-
+  has_many :quizzes, dependent: :destroy
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]

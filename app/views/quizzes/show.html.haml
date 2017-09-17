@@ -1,0 +1,20 @@
+.quiz
+  .user-name
+    = @quiz.question.question
+    - if @quiz.question.image?
+      = image_tag @quiz.question.image.url(:medium)
+    - if @quiz.question.audio?
+      = audio_tag @quiz.question.audio.url
+  .quiz-content
+    = @quiz.question.option1
+  .quiz-content
+    = @quiz.question.option2
+  .quiz-content
+    = @quiz.question.option3
+  .quiz-content
+    = @quiz.question.option4
+  .quiz-content
+    = @quiz.question.answer
+  - if @quiz.user == current_user
+    = link_to genre_subgenre_quiz_path(@genre, @subgenre, @quiz), method: :delete, data: { confirm: "Are you sure?" }, remote: true do
+      %span(class="glyphicon glyphicon-remove delete-quiz")
