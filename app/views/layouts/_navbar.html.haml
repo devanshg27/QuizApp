@@ -5,7 +5,9 @@
         %span.sr-only Toggle Navigation
         %span.icon-bar
         %span.icon-bar
-      .navbar-brand= link_to "Photogram", root_path
+      .navbar-left
+        =link_to (image_tag "Icon.png", :style => "height: 60px; padding-right:10px"), root_path
+        =link_to "QuizApp", root_path
     .collapse.navbar-collapse#bs-navbar-collapse-1
       %ul.nav.navbar-nav.navbar-right
         - if admin_signed_in?
@@ -14,6 +16,8 @@
         - if user_signed_in?
           %li
             = link_to "Home", root_path
+          %li
+            = link_to "My Quizzes", root_path
           %li
             = link_to "Logout", destroy_user_session_path, method: :delete
         - else

@@ -16,3 +16,124 @@
 .row{
 	margin-left: 20px;
 }
+body{
+	background: #ff6a32;
+	margin: 0;
+	height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+.container {
+	flex-grow: 1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+}
+.form-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+  font-family: Raleway;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.card-form{
+  width: 400px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+  
+  .form-title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    background: #27ae60;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .form-body{
+    padding: 10px;
+    
+    .form-row{
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      label{
+        color: black;
+      }
+      input[type=email], input[type=password], input[type=text]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+      }
+      .black-text {
+        color: black;
+      }
+    }
+    .field label {
+      padding: 10px;
+      color:black;
+    }
+  }
+  
+  .rule{
+    height: 2px;
+    background: #e8ebed;
+    margin: 0px 10px;
+  }
+  
+  .form-footer{
+    padding: 15px 20px;
+    
+    input[type=submit]{
+      display: inline-block;
+      height: 40px;
+      color:white;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background: #27ae60;
+      margin-right: 10px;
+      font-size: 14px;
+    }
+
+    span{
+      margin-left: 8px;
+    }
+  }
+  .links-row{
+    padding: 10px;
+    font-weight: bold;
+  }
+  .delete-button{
+    display: inline-block;
+    height: 40px;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    background: red !important;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+}
+
