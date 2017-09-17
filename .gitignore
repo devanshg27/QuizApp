@@ -60,3 +60,6 @@ bower.json
 
 # Ignore Byebug command history file.
 .byebug_history
+/public/packs
+/public/packs-test
+/node_modules
