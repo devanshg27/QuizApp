@@ -36,4 +36,5 @@
       .form-footer
         = f.submit "Update"
       .rule
-    Unhappy? #{button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'delete-button'}
+    %br/
+    #{button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'delete-button'}

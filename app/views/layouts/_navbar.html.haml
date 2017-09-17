@@ -19,9 +19,7 @@
           %li
             = link_to "Home", root_path
           %li
-            = link_to "My Quizzes", root_path
-          %li
-            = link_to "My Profile", root_path
+            = link_to "My Profile", profile_index_path
           %li
             = link_to "Logout", destroy_user_session_path, method: :delete
         - else
