@@ -30,8 +30,8 @@ body{
 .container {
 	flex-grow: 1;
   display:flex;
+  width: 100%;
   flex-direction:column;
-  justify-content:space-around;
 }
 .form-container{
   display: flex;
@@ -41,6 +41,15 @@ body{
   font-family: Raleway;
   color: white;
   letter-spacing: 1px;
+  margin: auto;
+}
+.content-holder {
+  width: 70%;
+  padding: 25px;
+  margin: 10px auto 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
 }
 
 .card-form{
