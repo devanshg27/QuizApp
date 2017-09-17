@@ -67,3 +67,5 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.2'
 
 gem 'webpacker', '~> 3.0'
+
+gem 'react_on_rails', '~> 9.0.1'
