@@ -1,3 +1,2 @@
 .content-holder
   = react_component("Profile", props: @user.to_json(only: ["name", "email", "created_at"]), prerender: true)
-  = react_component("HelloWorld", props: {name: "from view"}, prerender: true)

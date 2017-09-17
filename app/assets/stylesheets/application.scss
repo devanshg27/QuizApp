@@ -93,8 +93,8 @@ body{
         color: #576366;
         font-size: 14px;
       }
-      .black-text {
-        color: black;
+      .form-error {
+        color: red !important;
       }
     }
     .field label {
@@ -143,6 +143,9 @@ body{
     margin-left: 20px;
     margin-bottom: 10px;
     font-size: 14px;
+  }
+  .black-text {
+    color: black;
   }
 }
 
