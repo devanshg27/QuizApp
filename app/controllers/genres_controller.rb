@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
-  before_action :authenticate_admin!
+  before_action :authenticate_admin!, except: [:show]
+  before_action :authenticate_any!, only: [:show]
   before_action :set_genre, only: [:show, :edit, :update, :destroy]
   def index
     @genres = Genre.all
@@ -41,5 +42,13 @@ class GenresController < ApplicationController
   end
   def set_genre
     @genre = Genre.find(params[:id])
+  end
+
+  def authenticate_any!
+    if admin_signed_in?
+        true
+    else
+        authenticate_user!
+    end
   end
 end

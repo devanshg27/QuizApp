@@ -1,2 +1,2 @@
 .content-holder
-  = react_component("Profile", props: @user.to_json(only: ["name", "email", "created_at"]), prerender: true)
+  = react_component("Profile", props: {userDetails: @user.to_json(only: ["name", "email", "created_at"]), sameUser: @same_user}, prerender: true)

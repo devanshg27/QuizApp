@@ -128,5 +128,5 @@ class QuizzesController < ApplicationController
     else
         authenticate_user!
     end
-end
+  end
 end
