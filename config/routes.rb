@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :profile, :only => [:index, :show]
   resources :home, :only => [:index]
+  resources :myquizzes, :only => [:index]
   resources :genres do
     resources :subgenres do
       resources :questions

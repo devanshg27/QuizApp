@@ -21,6 +21,8 @@
           %li
             = link_to "My Profile", profile_index_path
           %li
+            = link_to "My Quizzes", myquizzes_path
+          %li
             = link_to "Logout", destroy_user_session_path, method: :delete
         - else
           %li

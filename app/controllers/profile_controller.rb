@@ -1,5 +1,7 @@
 class ProfileController < ApplicationController
   before_action :authenticate_any!
+  before_action :authenticate_user!, only: [:index]
+
   def index
     @user = current_user
     redirect_to controller: 'profile', action: 'show', id: current_user.id

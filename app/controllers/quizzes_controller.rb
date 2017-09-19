@@ -1,7 +1,7 @@
 class QuizzesController < ApplicationController
   before_action :authenticate_any!
   before_action :set_quiz, only: [:show, :edit, :update, :destroy]
-  before_action :owned_quiz, only: [:edit, :update, :destroy]
+  before_action :owned_quiz, only: [:show, :edit, :update, :destroy]
   before_action :set_subgenre
 
   def new
@@ -9,6 +9,11 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    if(@subgenre.quizzes.where(user_id: current_user.id, hasFinished: true).size > 0)
+      flash[:alert] = "You already have a quiz in that subgenre."
+      redirect_back fallback_location: root_path
+      return
+    end
     @quiz = @subgenre.quizzes.build
     @quiz.user_id = current_user.id
     prng = Random.new
@@ -117,9 +122,13 @@ class QuizzesController < ApplicationController
     @subgenre = Subgenre.find(params[:subgenre_id])
   end
   def owned_quiz
-    unless current_user == @quiz.user
-      flash[:alert] = "That quiz doesn't belong to you!"
-      redirect_to root_path
+    if admin_signed_in?
+      true
+    else
+      unless current_user == @quiz.user
+        flash[:alert] = "That quiz doesn't belong to you!"
+        redirect_to root_path
+      end
     end
   end
   def authenticate_any!

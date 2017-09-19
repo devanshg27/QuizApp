@@ -9,7 +9,8 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-moment": "^0.6.5",
-    "react-on-rails": "^9.0.2"
+    "react-on-rails": "^9.0.2",
+    "react-rails-form-helpers": "0.1.0-beta.13"
   },
   "devDependencies": {
     "webpack-dev-server": "^2.8.2"

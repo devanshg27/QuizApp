@@ -1,21 +1,2 @@
-.row
-  %p= @genre.name
-  %p= @genre.description
-- if @genre.subgenres
-  - @genre.subgenres.each do |subgenre|
-    .subgenre
-      .subgenre-name
-        = link_to subgenre.name, genre_subgenre_path(@genre, subgenre)
-      .subgenre-content
-        = subgenre.description
-        = link_to genre_subgenre_path(@genre, subgenre), method: :delete, data: { confirm: "Are you sure?" } do
-          %span(class="glyphicon glyphicon-remove delete-subgenre")
-.form.col-sm-12
-  = form_for [@genre, @genre.subgenres.new] do |f|
-    = f.text_field :name, placeholder: 'Add subgenre name...'
-    = f.text_field :description, placeholder: 'Add subgenre description...'
-    = f.submit "Submit"
-.text-center.edit-links
-  = link_to "Cancel", genres_path
-  |
-  = link_to "Edit genre", edit_genre_path(@genre)
+.content-holder
+  = react_component("GenrePage", props: { userDetails: current_user.to_json(only: ["quizzes"], include: ["quizzes" => { only: ["id", "hasFinished", "subgenre"], include: ["subgenre" => {only: ["id"]}]}]), Genre: @genre.to_json(only: ["name", "subgenres"], include: ["subgenres" => {only: ["name", "description", "id"]}])}, prerender: true)
