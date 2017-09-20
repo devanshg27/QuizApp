@@ -63,7 +63,7 @@ class MyQuizPage extends React.Component {
 																				{quiz.score}{!quiz.hasFinished && "*"}
 																			</td>
 																			<td style={{textAlign: "center", padding: "5px"}}>
-																				<a  className="btn btn-danger" data-remote="true" rel="nofollow" data-method="delete" href="/genres/1/subgenres/1/quizzes/4">
+																				<a  className="btn btn-danger" data-remote="true" rel="nofollow" data-method="delete" href={"/genres/" + quiz.subgenre.genre.id + "/subgenres/" + quiz.subgenre.id + "/quizzes/" + quiz.id}>
 																					Delete
 																				</a>
 																			</td>
