@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount RailsAdmin::Engine => '/admin_home', as: 'rails_admin'
   devise_for :users, path: 'users', controllers: { sessions: "users/sessions", registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks'}
   devise_for :admins, path: 'admins', controllers: { sessions: "admins/sessions", registrations: 'admins/registrations'}
   root 'home#index'

@@ -7,10 +7,14 @@ import AdminHome from '../components/adminHome';
 import Profile from '../components/profile';
 import GenrePage from '../components/genrePage';
 import QuestionPage from '../components/questionPage';
+import MyQuizPage from '../components/myQuizPage';
 
 // This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
   HelloWorld,
+});
+ReactOnRails.register({
+  MyQuizPage,
 });
 ReactOnRails.register({
   GenrePage,

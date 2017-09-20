@@ -2,4 +2,4 @@
   - if user_signed_in?
     = react_component("UserHome", props: { userDetails: current_user.to_json(only: ["quizzes"], include: ["quizzes" => { only: ["id", "score", "hasFinished", "subgenre"], include: ["subgenre" => {only: ["name", "genre", "id"], include: ["genre" => {only: ["id", "name"]}]}]}]), allGenres: Genre.all.to_json(only: ["id", "name", "description"])}, prerender: true)
   - elsif admin_signed_in?
-    = react_component("AdminHome", props: { name: "From View" }, prerender: true)
+    = link_to "Admin Home", "/admin_home"
