@@ -14,6 +14,11 @@ class QuizzesController < ApplicationController
       redirect_back fallback_location: root_path
       return
     end
+    if(@subgenre.questions.count == 0)
+      flash[:alert] = "We will add questions to this quiz shortly. Till then try the other quizzes."
+      redirect_back fallback_location: root_path
+      return
+    end
     @quiz = @subgenre.quizzes.build
     @quiz.user_id = current_user.id
     prng = Random.new

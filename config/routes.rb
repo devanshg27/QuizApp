@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :home, :only => [:index]
   resources :leaderboard, :only => [:index]
   resources :myquizzes, :only => [:index]
-  resources :genres do
-    resources :subgenres do
-      resources :questions
-      resources :quizzes
+  resources :genres, :only => [:show] do
+    resources :subgenres, :only => [] do
+      resources :questions, :only => []
+      resources :quizzes, :only => [:create, :edit, :destroy, :update]
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
