@@ -23,6 +23,8 @@ class GenrePage extends React.Component {
 					width: '100%',
 					backgroundColor: '#E0E0E0'
 				}}></div>
+				{JSON.parse(this.props.Genre).description}
+				<br />
 				The following subgenres of quizzes are available, choose any of them to start the quiz:
 				<ul>
 					{JSON.parse(this.props.Genre).subgenres.map(function(subgenre, i){

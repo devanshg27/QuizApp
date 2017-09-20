@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Moment from 'react-moment';
 
-class MyQuizPage extends React.Component {
+class LeaderBoardPage extends React.Component {
 
 	render() {
 		return (
@@ -98,4 +98,4 @@ class MyQuizPage extends React.Component {
 	}
 }
 
-export default MyQuizPage;
+export default LeaderBoardPage;

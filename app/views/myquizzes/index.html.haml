@@ -1,2 +1,2 @@
 .content-holder
-  = react_component("MyQuizPage", props: { name: "Testing" }, prerender: true)
+  = react_component("MyQuizPage", props: { authenticity_token: form_authenticity_token, userDetails: current_user.to_json(only: ["quizzes"], include: ["quizzes" => { only: ["id", "hasFinished", "subgenre", "created_at", "score"], include: ["subgenre" => {only: ["id", "genre"], include: ["genre" => {only: ["id", "name"]}]}]}]), allGenres: Genre.all.to_json(only: ["id", "name", "description", "subgenres"], include: ["subgenres" => {only: ["id", "name", "description"]}])}, prerender: true)
