@@ -70,3 +70,7 @@ gem 'webpacker', '~> 3.0'
 
 gem 'react_on_rails', '~> 9.0.1'
 gem 'mini_racer', platforms: :ruby
+
+gem 'rails_admin', '~> 1.2'
+
+
