@@ -6,6 +6,7 @@ import UserHome from '../components/userHome';
 import AdminHome from '../components/adminHome';
 import Profile from '../components/profile';
 import GenrePage from '../components/genrePage';
+import QuestionPage from '../components/questionPage';
 
 // This is how react_on_rails can see the HelloWorld in the browser.
 ReactOnRails.register({
@@ -22,6 +23,9 @@ ReactOnRails.register({
 });
 ReactOnRails.register({
   Profile,
+});
+ReactOnRails.register({
+  QuestionPage,
 });
 ReactOnRails.register({
   Hello,

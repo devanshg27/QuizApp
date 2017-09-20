@@ -39,12 +39,28 @@ class GenrePage extends React.Component {
 									{JSON.parse(this.props.userDetails).quizzes.find(function(quiz) {
 										return (subgenre.id == quiz.subgenre.id && !quiz.hasFinished);
 									}) === undefined && (
-										<a style={{textSize: "16px"}} className="btn btn-success">New Quiz</a>
+										<form
+											action={'/genres/' + JSON.parse(this.props.Genre).id + '/subgenres/' + subgenre.id + '/quizzes/'}
+											method='post'
+											acceptCharset='UTF-8'
+										>
+											<input type='hidden' name='utf8' value='✓' />
+											<input type='hidden' name='authenticity_token' value={this.props.authenticity_token} />
+											<input style={{textSize: "16px"}} className="btn btn-success" name="commit" value="Start new quiz" type="submit" />
+										</form>
 									)}
 									{JSON.parse(this.props.userDetails).quizzes.find(function(quiz) {
 										return (subgenre.id == quiz.subgenre.id && !quiz.hasFinished);
 									}) !== undefined && (
-										<a style={{textSize: "16px"}} className="btn btn-info">Continue</a>
+										<a
+											href={'/genres/' + JSON.parse(this.props.Genre).id + '/subgenres/'
+												+ subgenre.id + '/quizzes/' + 
+												JSON.parse(this.props.userDetails).quizzes.find(function(quiz) {
+													return (subgenre.id == quiz.subgenre.id && !quiz.hasFinished);
+												}).id + '/edit'}
+											style={{textSize: "16px"}}
+											className="btn btn-info"
+										>Continue</a>
 									)}
 								</div>
 								{subgenre.description}

@@ -9,7 +9,7 @@ class QuizzesController < ApplicationController
   end
 
   def create
-    if(@subgenre.quizzes.where(user_id: current_user.id, hasFinished: true).size > 0)
+    if(@subgenre.quizzes.where(user_id: current_user.id, hasFinished: false).size > 0)
       flash[:alert] = "You already have a quiz in that subgenre."
       redirect_back fallback_location: root_path
       return
@@ -25,8 +25,7 @@ class QuizzesController < ApplicationController
     @quiz.skipQuestionLeft = true
     @quiz.hasFinished = false
     if @quiz.save
-      flash[:success] = "You made a new quiz for that subgenre!"
-      redirect_back fallback_location: root_path
+      redirect_to controller: 'quizzes', action: 'edit', id: @quiz.id
     else
       flash[:alert] = "Check the quiz form, something went wrong."
       render root_path
@@ -71,13 +70,21 @@ class QuizzesController < ApplicationController
         offset = Random.rand(@quiz.subgenre.questions.count)
         @quiz.question_id = @quiz.subgenre.questions.offset(offset).first.id
         @quiz.randomGenerator = Base64.encode64(Marshal.dump(prng))
-      end
-      if @quiz.save
-        flash[:success] = "Second try"
-        redirect_back fallback_location: root_path
+        if @quiz.save
+          flash[:success] = "Correct answer"
+          redirect_back fallback_location: root_path
+        else
+          flash[:alert] = "Check the form, something went wrong."
+          render root_path
+        end
       else
-        flash[:alert] = "Check the form, something went wrong."
-        render root_path
+        if @quiz.save
+          flash[:success] = "Wrong answer, Second try"
+          redirect_back fallback_location: root_path
+        else
+          flash[:alert] = "Check the form, something went wrong."
+          render root_path
+        end
       end
     else
       if (quiz_params[:answer].chars.sort.join == @quiz.question.answer.chars.sort.join)
@@ -86,15 +93,22 @@ class QuizzesController < ApplicationController
         offset = Random.rand(@quiz.subgenre.questions.count)
         @quiz.question_id = @quiz.subgenre.questions.offset(offset).first.id
         @quiz.randomGenerator = Base64.encode64(Marshal.dump(prng))
+        if @quiz.save
+          flash[:success] = "Correct answer"
+          redirect_back fallback_location: root_path
+        else
+          flash[:alert] = "Check the form, something went wrong."
+          render root_path
+        end
       else
         @quiz.hasFinished = true
-      end
-      if @quiz.save
-        flash[:success] = "Submitted"
-        redirect_back fallback_location: root_path
-      else
-        flash[:alert] = "Check the form, something went wrong."
-        render root_path
+        if @quiz.save
+          flash[:success] = "Wrong answer, Quiz ends"
+          redirect_to root_path
+        else
+          flash[:alert] = "Check the form, something went wrong."
+          render root_path
+        end
       end
     end
   end

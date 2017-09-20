@@ -152,3 +152,49 @@ body{
   }
 }
 
+.quiz-options {
+  input.check { position: fixed; left:-100px;}
+  input.check + label[for].check {
+    cursor: pointer;
+    color: #999; font-weight: 700;
+    font-size: 20px; font-family: Arial;
+    border: 1px solid #CCC;
+    padding: 5px;
+  }
+  input.check + label[for].check:after {
+    content: "";
+    display: inline-block; width: 35px; height: 15px; 
+    vertical-align: middle; text-align: right;
+    margin: 0 5px 0 10px;
+    line-height: 0.7em;
+    background-position: left;
+  }
+  
+  /* Checked */
+  input:checked + label[for].check:after {
+    color: #333;
+    content:"✔";
+  }
+  
+  /* Focus */
+  input:focus + label[for].check {
+    border-color: #6FABE7;
+  }
+  
+  /* Hover */
+  input + label[for].check:hover {
+    border-color: #6FABE7;
+  }
+  
+  /* Hover (unchecked) */
+  input:not(:checked) + label[for].check:hover:after {
+    color: #DDD;
+    content:"✔";
+  }
+  
+  /* Hover (checked) */
+  input:checked + label[for].check:hover:after {
+    color: #6FABE7;
+    content:"✔";
+  }
+}

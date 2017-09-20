@@ -1,7 +1,2 @@
-.form-wrapper
-  = form_tag genre_subgenre_quiz_path(@genre, @subgenre, @quiz), method: :patch do
-    .search_field
-      = text_field_tag "quiz[answer]"
-      = check_box_tag "quiz[doubleTryUse]"
-      = check_box_tag "quiz[skipQuestionUse]"
-      = button_tag 'Go' , class: 'search-button' , type: :submit
+.content-holder
+  = react_component("QuestionPage", props: { quizDetails: @quiz.to_json(only: ["id", "subgenre" , "score", "doubleTryLeft", "skipQuestionLeft", "question"], include: ["question" => {only: ["question", "audio_file_name", "image_file_name", "audio_content_type", "option1", "option2", "option3", "option4", "subgenre"], include: ["subgenre" => {only: ["id", "genre"], include: ["genre" => {only: ["id"]}]}]}]), imageFilePath: @quiz.question.image.url, audioFilePath: @quiz.question.audio.url, authenticity_token: form_authenticity_token, isSingleChoice: (@quiz.question.answer.length==1)}, prerender: true)
