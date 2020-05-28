@@ -165,7 +165,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     public_suffix (3.0.3)
-    puma (3.12.4)
+    puma (3.12.6)
     rack (2.2.2)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
