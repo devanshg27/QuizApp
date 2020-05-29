@@ -41,13 +41,13 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    autoprefixer-rails (9.3.1)
+    autoprefixer-rails (9.7.6)
       execjs
     bcrypt (3.1.13)
     bindex (0.5.0)
-    bootstrap-sass (3.3.7)
+    bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
+      sassc (>= 2.0.0)
     builder (3.2.4)
     byebug (10.0.2)
     capybara (2.18.0)
@@ -82,7 +82,7 @@ GEM
     execjs (2.7.0)
     faraday (0.15.3)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.25)
+    ffi (1.12.2)
     font-awesome-rails (4.7.0.4)
       railties (>= 3.2, < 6.0)
     globalid (0.4.1)
@@ -213,9 +213,9 @@ GEM
     rainbow (2.2.2)
       rake
     rake (13.0.1)
-    rb-fsevent (0.10.3)
-    rb-inotify (0.9.10)
-      ffi (>= 0.5.0, < 2)
+    rb-fsevent (0.10.4)
+    rb-inotify (0.10.1)
+      ffi (~> 1.0)
     react_on_rails (9.0.3)
       addressable
       connection_pool
@@ -228,7 +228,7 @@ GEM
       railties (>= 5.0)
     ruby_dep (1.5.0)
     rubyzip (1.3.0)
-    sass (3.6.0)
+    sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -239,6 +239,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.3.0)
+      ffi (~> 1.9)
     selenium-webdriver (3.141.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2, >= 1.2.2)
@@ -286,7 +288,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.5)
+  bootstrap-sass (~> 3.4.1)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
