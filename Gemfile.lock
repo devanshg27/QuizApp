@@ -142,7 +142,7 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.4.10)
     nested_form (0.3.2)
-    nio4r (2.5.4)
+    nio4r (2.5.8)
     nokogiri (1.11.4)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
@@ -168,7 +168,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     public_suffix (3.0.3)
-    puma (4.3.8)
+    puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
